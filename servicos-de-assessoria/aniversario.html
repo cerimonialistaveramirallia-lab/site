@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Assessoria Aniversário | Vera Mirallia Cerimonialista</title>
+    <meta name=description
+        content="Serviços de Assessoria Vera Mirallia cerimonialista, entre em contato por telefone, whatsapp ou facebook. Cerimonialista Presidente Prudente - SP e região">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #fff;
+            font-size-adjust: 0.52;
+        }
+
+
+
+
+        /* ====== NAVBAR ====== */
+        header {
+            border-bottom: solid #d1d1d0 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            color: #d4af37;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 9px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 16px;
+            width: 190px;
+                color: #d4af37;
+        }
+
+        .logo b {
+            display: block;
+        }
+
+        /* MENU LINKS */
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu li a {
+            color: #000;
+            padding: 8px 12px;
+        }
+
+        .menu li a:hover {
+            color: #d4af37;
+            border-radius: 4px;
+        }
+
+        /* ÍCONE HAMBÚRGUER */
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000;
+        }
+
+        /* Checkbox oculto */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* ====== MOBILE ====== */
+        @media (max-width: 768px) {
+
+            /* Esconde o menu padrão */
+            .menu {
+                position: absolute;
+                top: 55px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                gap: 0;
+                display: none;
+                box-shadow: 0px 9px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            .menu li {
+                padding: 15px;
+                border-top: 1px solid #d6d6d6;
+            }
+
+            /* Mostra menu quando checkbox estiver marcado */
+            #menu-toggle:checked+.menu-icon+.menu {
+                display: flex;
+            }
+
+            /* Mostra o ícone hambúrguer */
+            .menu-icon {
+                display: block;
+            }
+        }
+
+        footer a img {
+            position: relative;
+            top: 4px
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer .item {
+            padding-top: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+            line-height: 2.4;
+        }
+
+        .footer strong {
+            display: block;
+            padding-bottom: 15px;
+        }
+
+        footer p {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media screen and (min-width: 768px) {
+            .footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+    </style>
+     <link rel="preload" href="/src/css/edit.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/src/css/edit.css">
+    </noscript>
+</head>
+
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <nav class="navbar">
+            <a href="/index.html" class="logo" title="Vera Mirallia Cerimonialista"><b>Vera Mirallia</b>Cerimonialista</a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul class="menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/sobre.html">Sobre</a></li>
+                <li><a href="/servicos-de-assessoria.html">Serviços de assessoria</a></li>
+                <li><a href="/contato.html">Contato</a></li>
+                <li><a href="/entrar">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <style>
+ .titulo {
+            padding: 30px;
+            background-color: #e5e5e5;
+        }
+.center {
+    text-align: center;
+}
+h1 {
+    font-size: 2.6em;
+    color: #d4af37;
+}
+h2 {
+    font-weight: 500;
+}
+.container{
+           padding: 16px;
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.6;
+}
+.container p {
+    padding: 5px 0px 5px 0px;
+}
+.container ul{
+        padding-left: 20px;
+}
+@media screen and (min-width: 768px) {
+    .titulo {
+        padding: 74px;
+    }
+}
+ /* btn whats */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    background-color: #ede5dc;
+    background-image: url(/src/img/fundo-whatsapp_11zon.webp);
+    margin: 70px auto;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 8px;
+    padding-bottom: 2px;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+.modal-head {
+       height: 53px;
+    background-color: #005e54;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px;
+}
+.modal .msg:after {
+    border-width: 0 21px 21px 0;
+    border-color: transparent #fff transparent transparent;
+    top: 0;
+    left: -11px;
+}
+.modal .msg:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+.modal .msg {
+    position: relative;
+    min-width: 60px;
+    max-width: calc(100% - 52px);
+    padding: 13px 16px;
+    margin: 0 18px 16px;
+    border-radius: 14px;
+    background: #fff;
+    color: #877d7d;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+    transform-origin: 0 50%;
+    animation: msg_show .25s cubic-bezier(0, 0, .60, 1.20) 12ms both;
+}
+#modal-whats a {
+    background-color: #25d466;
+    padding: 12px;
+    border-radius: 20px;
+    margin: 5px;
+    color: #fff;
+    font-weight: 600;
+    align-items: center;
+    display: flex;
+}
+.modal-head strong {
+    top: -8px;
+    position: relative;
+}
+.close-modal {
+   color: #ffffff;
+    float: right;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 53px;
+    line-height: 0.7;
+}
+         .btn-fixo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00a82d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+
+        .btn-fixo img {
+            margin: 10px auto auto auto;
+            display: block;
+        }
+
+        .ntf-wts {
+    background-color: red;
+    color: #fff;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -54px;
+    right: -44px;
+    position: relative;
+    animation: chat_badge_in .5s cubic-bezier(.27, .9, .41, 1.28) 1 both;
+}
+@keyframes msg_show {
+            0% {
+                transform: scale3d(0, 0, 0)
+            }
+
+            to {
+                transform: scaleX(1)
+            }
+        }
+        </style>
+         <section class="titulo">
+            <h1 class="center">Aniversário</h1>
+            <h2 class="center">Cada idade merece ser celebrada! 🎉</h2>
+        </section>
+        <section class="container">
+           <p>Comemorar um novo ciclo é uma forma de celebrar a vida, reunir pessoas queridas e eternizar momentos únicos. A <b>Vera Mirallia Cerimonialista</b> cuida de cada detalhe da sua festa de aniversário — seja aos 18, 25, 30, 40, 50, 60 ou em qualquer fase da vida!</p>
+           <p>Mais do que organizar eventos, somos especialistas em <b>criar experiências inesquecíveis</b>. Nossa assessoria vai muito além das tradicionais festas de debutante: planejamos <b>aniversários adultos com elegância, autenticidade e diversão</b>, sempre refletindo a personalidade de quem celebra.</p>
+           <p>Cuidamos de tudo para que você possa apenas aproveitar: desde a escolha do espaço ideal até o cronograma da festa, passando por <b>buffet, decoração, atrações, som, iluminação</b> e, claro, aquele <b>toque personalizado</b> que transforma a comemoração em algo verdadeiramente seu.</p>
+           <p>Seja uma celebração intimista ou uma grande festa com amigos e família, a <b>Vera Mirallia</b> está ao seu lado em todas as etapas — garantindo leveza, estilo e tranquilidade do início ao fim.</p>
+           <p><b>✨ Porque cada idade tem sua beleza. E celebrar é honrar a vida!</b></p>
+           <br><br>
+
+<h3>Nossos serviços incluem:</h3>
+<ul>
+    <li>Consultoria personalizada</li>
+    <li>Indicação e coordenação de fornecedores</li>
+    <li>Planejamento e cronograma completo do evento</li>
+    <li>Cerimonial e condução no dia da festa</li>
+    <li>Supervisão integral para que tudo saia perfeito</li>
+    <li>Atendimento com carinho, excelência e atenção aos detalhes</li>
+</ul>
+           <br><br>
+
+
+
+
+
+
+        </section>
+    </main>
+     <div id="modal-whats" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <img src="/src/img/whatsapp_btn.svg" loading="lazy" alt="WhatsApp Chat" width="35" height="35"><strong>
+                    WhatsApp</strong>
+                <span class="close-modal">&times;</span>
+            </div>
+            <br>
+            <p class="msg">Olá! Vamos falar sobre seu evento?</p>
+            <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia! Visitei seu site e queria mais informações sobre assessoria"
+                title="Falar agora no Whatsapp" target="_blank">
+                <img src="/src/img/whatsapp_btn.svg" loading="lazy" alt="WhatsApp Chat" width="35" height="35">
+                &nbsp;Falar agora no Whatsapp
+            </a>
+        </div>
+    </div>
+    <div id="btn-whatsapp" class="btn-fixo">
+        <img src="/src/img/whatsapp_btn.svg" loading="lazy" width="40" height="40" alt="Enviar WhatsApp">
+    </div>
+    <div id="editor" class="modal-edit" data-pagina="servicos-de-assessoria/debutante.html">
+        <div class="modal-edit-content">
+            <textarea rows="20" id="textEdit"></textarea>
+            <label>&nbsp;&nbsp;&nbsp;Visualização:</label>
+            <div id="visualizacao" style="margin:10px;"></div>
+            <div class="btn-container">
+                <button type="button" class="btn-cancelar" onclick="Cancelar()">Cancelar</button>
+                <button type="button" class="btn-atualizar" id="Atualizar">Atualizar</button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { AtualizarConteudo } from '/src/js/a-teste-edit-module.js';
+
+        (async () => {
+            await AtualizarConteudo();
+        })();
+    </script>
+    <script src="/src/js/a-teste-edit.js"></script>
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer">
+            <div class="item">
+                <strong>Contato</strong>
+                <ul>
+                    <li>(18) 99776-2182</li>
+                </ul>
+            </div>
+            <div class="item">
+                <strong>Rede social</strong>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/mirallia.cerimonialista" target="_blank" title="Instagram">
+                            <img src="../src/img/instagram_icon.svg" loading="lazy" width="20" height="20" alt="Instagram">
+                            Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/vera.mirallia/" target="_blank" title="Facebook">
+                            <img src="../src/img/facebook.svg" loading="lazy" width="20" height="20" alt="Facebook">
+                            Facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2025 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        const btnWts = document.getElementById('btn-whatsapp');
+        const modal = document.getElementById("modal-whats");
+        btnWts.onclick = function () {
+            modal.style.display = "block";
+            let ntf = document.querySelector('.ntf-wts');
+            if (ntf) {
+                ntf.remove();
+                sessionStorage.setItem('notificao-whatsapp', 'true');
+            }
+        }
+        modal.querySelector('.close-modal').onclick = function () {
+            modal.style.display = "none";
+        }
+        setTimeout(function () {
+            let value = sessionStorage.getItem('notificao-whatsapp');
+            if (!value) {
+                let elemNtf = document.createElement('div');
+                elemNtf.className = "ntf-wts"
+                elemNtf.textContent = '1';
+                btnWts.appendChild(elemNtf);
+            }
+        }, 600);
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        //localStorage.setItem()
+    </script>
+</body>
+
+</html>
