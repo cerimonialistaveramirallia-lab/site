@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vera Mirallia Cerimonialista</title>
+    <meta name=description content="Cerimonialista Vera Mirallia. Cerimonialista Presidente Prudente - SP e região">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,700;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Link para CSS externo -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: 0;
+            -webkit-tap-highlight-color: transparent;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: #fff;
+            font-size-adjust: 0.52;
+        }
+
+        /* ====== NAVBAR ====== */
+        header {
+            border-bottom: solid #d1d1d0 1px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            color: #d4af37;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 9px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* LOGO */
+        .logo {
+            font-size: 16px;
+            width: 190px;
+            color: #d4af37;
+        }
+
+        .logo b {
+            display: block;
+        }
+
+        /* MENU LINKS */
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu li a {
+            color: #000;
+            padding: 8px 12px;
+        }
+
+        .menu li a:hover {
+            color: #d4af37;
+            border-radius: 4px;
+        }
+
+        /* ÍCONE HAMBÚRGUER */
+        .menu-icon {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #000;
+        }
+
+        /* Checkbox oculto */
+        #menu-toggle {
+            display: none;
+        }
+
+        /* ====== MOBILE ====== */
+        @media (max-width: 768px) {
+
+            /* Esconde o menu padrão */
+            .menu {
+                position: absolute;
+                top: 55px;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                gap: 0;
+                display: none;
+                box-shadow: 0px 9px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            .menu li {
+                padding: 15px;
+                border-top: 1px solid #d6d6d6;
+            }
+
+            /* Mostra menu quando checkbox estiver marcado */
+            #menu-toggle:checked+.menu-icon+.menu {
+                display: flex;
+            }
+
+            /* Mostra o ícone hambúrguer */
+            .menu-icon {
+                display: block;
+            }
+        }
+
+
+
+
+
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1cm;
+            /* espaçamento entre cards */
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .cards div {
+            width: 100%;
+            height: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+
+
+        .center {
+            text-align: center;
+        }
+
+        .btn-saiba-mais {
+            background-color: #d4af37;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            box-shadow: 0 9px 9px rgb(0 0 0 / 35%);
+            letter-spacing: 2px;
+        }
+
+        .btn {
+            padding: 10px;
+            border: solid #ffffff 3px;
+            color: #fff;
+            width: 250px;
+            letter-spacing: 2px;
+        }
+
+        .btn-default {
+            background-color: #d4af37;
+            color: white;
+            padding: 16px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .cards div:nth-child(1) {
+            background-color: rgb(240, 240, 240);
+        }
+
+        .cards div:nth-child(2) {
+            background-color: rgb(219, 219, 219);
+        }
+
+        .cards div:nth-child(3) {
+            background-color: rgb(187, 187, 187);
+        }
+
+
+
+
+
+
+        .btn-fixo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00a82d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+
+        .btn-fixo img {
+            margin: 10px auto auto auto;
+            display: block;
+        }
+
+        .assessorias {
+
+            padding: 30px;
+            padding-bottom: 106px;
+        }
+
+        .assessorias h2 {
+            font-size: 2.6em;
+            margin-bottom: 50px;
+            color: #d4af37;
+        }
+
+        .assessoria-completa {
+            background-image: url(/src/img/assessoria-completa.webp);
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        .assessoria-parcial {
+            background-image: url(/src/img/assessoria-parcial.webp);
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        .assessoria-final {
+            background-image: url(/src/img/assessoria-final.webp);
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        .assessoria-completa h3,
+        .assessoria-parcial h3,
+        .assessoria-final h3 {
+            border-bottom: solid #fff 1px;
+            padding-bottom: 25px;
+            margin-bottom: 26px;
+            font-weight: 600;
+            text-shadow: 2px 2px 5px rgb(0 0 0);
+            font-size: 24px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .slider {
+            width: 100%;
+            max-width: 700px;
+            overflow: hidden;
+            position: relative;
+            margin: auto;
+            height: 500px;
+        }
+
+        .slider h2 {
+            font-size: 2.6em;
+            margin: 50px;
+            color: #d4af37;
+            text-align: center;
+        }
+
+        .review {
+            min-width: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            text-align: center;
+
+        }
+
+        /* Botões de navegação */
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgb(0 0 0 / 68%);
+            color: #fff;
+            border: none;
+            padding: 9px 14px 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+
+
+        .portfolio {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: #d4af37;
+        }
+
+        .portfolio h2 {
+            font-size: 2.6em;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            padding: 10px;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .portfolio-grid img {
+            width: 130px;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+
+        /* Lightbox (imagem ampliada) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Botão de fechar */
+        .close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close:hover {
+            color: #ff5050;
+        }
+
+        .ntf-wts {
+            background-color: red;
+            color: #fff;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -54px;
+            right: -44px;
+            position: relative;
+            animation: chat_badge_in .5s cubic-bezier(.27, .9, .41, 1.28) 1 both;
+        }
+
+        @keyframes chat_badge_in {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 50px, 0)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateZ(0)
+            }
+        }
+
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Black with opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #ede5dc;
+            background-image: url(/src/img/fundo-whatsapp_11zon.webp);
+            margin: calc(100% + 182px) auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            padding-bottom: 2px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .modal-head {
+            height: 53px;
+            background-color: #005e54;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px;
+        }
+
+        .modal-head strong {
+            top: -8px;
+            position: relative;
+        }
+
+        .modal-head img {}
+
+        /* Close Button */
+        .close-modal {
+            color: #ffffff;
+            float: right;
+            font-weight: 400;
+            cursor: pointer;
+            font-size: 53px;
+            line-height: 0.7;
+        }
+
+        #modal-whats a {
+            background-color: #25d466;
+            padding: 12px;
+            border-radius: 20px;
+            margin: 5px;
+            color: #fff;
+            font-weight: 600;
+            align-items: center;
+            display: flex;
+        }
+
+        .modal .msg {
+            position: relative;
+            min-width: 60px;
+            max-width: calc(100% - 52px);
+            padding: 13px 16px;
+            margin: 0 18px 16px;
+            border-radius: 14px;
+            background: #fff;
+            color: #877d7d;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+            transform-origin: 0 50%;
+            animation: msg_show .25s cubic-bezier(0, 0, .60, 1.20) 12ms both;
+        }
+
+
+
+        .modal .msg:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .modal .msg:after {
+            border-width: 0 21px 21px 0;
+            border-color: transparent #fff transparent transparent;
+            top: 0;
+            left: -11px;
+        }
+
+
+        @keyframes msg_show {
+            0% {
+                transform: scale3d(0, 0, 0)
+            }
+
+            to {
+                transform: scaleX(1)
+            }
+        }
+
+
+        /* videos */
+        /* Div container com vídeo */
+        .video-background {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            /* altura da tela */
+            overflow: hidden;
+        }
+
+        /* O vídeo ocupa toda a área */
+        .video-background video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+            /* garante que o vídeo cubra tudo */
+        }
+
+        /* Conteúdo sobre o vídeo */
+        .video-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .video-content p {
+            font-size: 1em;
+            margin-bottom: 60px;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgb(0 0 0);
+        }
+
+        .video-content h2,
+        h1 {
+            color: #fff;
+            font-size: 1.6em;
+            text-shadow: 2px 2px 5px rgb(0 0 0);
+        }
+
+        h1 {
+            font-size: 2.6em;
+        }
+
+        /* Camada escura opcional para melhorar a legibilidade */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+
+        @media screen and (min-width: 768px) {
+
+            .cards {
+                flex-direction: row;
+            }
+
+            .video-background {
+                height: 50vh;
+            }
+        }
+
+        .sobre {
+            background-color: #e5e5e5;
+            padding: 30px;
+            padding-bottom: 106px;
+        }
+
+        .sobre h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .sobre h3 {
+            color: #d4af37;
+
+        }
+
+        .sobre img {
+            margin: auto;
+            display: block;
+            border-radius: 50%;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 9px rgb(0 0 0 / 35%);
+        }
+
+        .sobre div {
+            max-width: 761px;
+            margin: auto;
+        }
+
+        .btn-center {
+            margin: auto;
+            display: table;
+        }
+
+
+        footer a img {
+            position: relative;
+            top: 4px
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: #fff;
+        }
+
+        .footer .item {
+            padding-top: 20px;
+        }
+
+        .footer ul {
+            list-style: none;
+            line-height: 2.4;
+        }
+
+        .footer strong {
+            display: block;
+            padding-bottom: 15px;
+        }
+
+        footer p {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @media screen and (min-width: 768px) {
+
+            .footer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+
+        /* btn whats */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #ede5dc;
+            background-image: url(/src/img/fundo-whatsapp_11zon.webp);
+            margin: 70px auto;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            padding-bottom: 2px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+        }
+
+        .modal-head {
+            height: 53px;
+            background-color: #005e54;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px;
+        }
+
+        .modal .msg:after {
+            border-width: 0 21px 21px 0;
+            border-color: transparent #fff transparent transparent;
+            top: 0;
+            left: -11px;
+        }
+
+        .modal .msg:after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .modal .msg {
+            position: relative;
+            min-width: 60px;
+            max-width: calc(100% - 52px);
+            padding: 13px 16px;
+            margin: 0 18px 16px;
+            border-radius: 14px;
+            background: #fff;
+            color: #877d7d;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .3));
+            transform-origin: 0 50%;
+            animation: msg_show .25s cubic-bezier(0, 0, .60, 1.20) 12ms both;
+        }
+
+        #modal-whats a {
+            background-color: #25d466;
+            padding: 12px;
+            border-radius: 20px;
+            margin: 5px;
+            color: #fff;
+            font-weight: 600;
+            align-items: center;
+            display: flex;
+        }
+
+        .modal-head strong {
+            top: -8px;
+            position: relative;
+        }
+
+        .close-modal {
+            color: #ffffff;
+            float: right;
+            font-weight: 400;
+            cursor: pointer;
+            font-size: 53px;
+            line-height: 0.7;
+        }
+
+        .btn-fixo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #00a82d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 2;
+        }
+
+        .btn-fixo img {
+            margin: 10px auto auto auto;
+            display: block;
+        }
+
+        .ntf-wts {
+            background-color: red;
+            color: #fff;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: -54px;
+            right: -44px;
+            position: relative;
+            animation: chat_badge_in .5s cubic-bezier(.27, .9, .41, 1.28) 1 both;
+        }
+
+        @keyframes msg_show {
+            0% {
+                transform: scale3d(0, 0, 0)
+            }
+
+            to {
+                transform: scaleX(1)
+            }
+        }
+    </style>
+     <link rel="preload" href="/src/css/edit.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/src/css/edit.css">
+    </noscript>
+</head>
+
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <nav class="navbar">
+            <a href="/" class="logo" title="Vera Mirallia Cerimonialista"><b>Vera Mirallia</b>Cerimonialista</a>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/sobre">Sobre</a></li>
+                <li><a href="/servicos-de-assessoria.html">Serviços de assessoria</a></li>
+                <li><a href="/contato">Contato</a></li>
+                <li><a href="/entrar">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção principal -->
+    <main>
+
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="/src/video/_1de667fe-02fa-46d3-9865-5813eb5f6408.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
+
+            <div class="overlay"></div>
+
+            <div class="video-content">
+                <h1>Vera Mirallia Cerimonialista</h1>
+                <br>
+                <br>
+                <h2>Tornamos seus sonhos realidade</h2>
+                <br>
+                <p>Organizamos casamentos, aniversários e debutantes com elegância e perfeição.</p>
+                <a href="/servicos-de-assessoria.html" title="Conheça nossos serviços" class="btn-default">CONHEÇA
+                    NOSSOS
+                    SERVIÇOS</a>
+                <br>
+            </div>
+        </div>
+
+
+
+        <section class="assessorias">
+            <h2 class="center">ASSESSORIAS</h2>
+            <div class="cards">
+                <div class="assessoria-completa">
+                    <h3 class="center">Assessoria completa</h3>
+                    <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia!. Tenho interesse em ASSESSORIA COMPLETA para meu evento. Podemos conversar?"
+                        target="_blank" title="Assessoria completa" class="btn-saiba-mais">SAIBA MAIS →</a>
+                </div>
+                <div class="assessoria-parcial">
+                    <h3 class="center">Assessoria parcial</h3>
+                    <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia!. Tenho interesse em ASSESSORIA PARCIAL para meu evento. Podemos conversar?"
+                        target="_blank" title="Assessoria parcial" class="btn-saiba-mais">SAIBA MAIS →</a>
+                </div>
+                <div class="assessoria-final">
+                    <h3 class="center">Assessoria final</h3>
+                    <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia!. Tenho interesse em ASSESSORIA FINAL para meu evento. Podemos conversar?"
+                        target="_blank" title="Assessoria final" class="btn-saiba-mais">SAIBA MAIS →</a>
+
+                </div>
+            </div>
+
+        </section>
+        <section class="sobre">
+            <img src="/src/img/Vera Mirallia Cerimonialista.jpg" width="150" height="150"
+                alt="Vera Mirallia Cerimonialista">
+            <div>
+                <h3>COMPROMISSO COM CADA DETALHE</h3>
+                <h2>Assessoria para eventos inesquecíveis</h2>
+                <p>Olá! Sou Vera Mirallia Cerimonialista, cerimonialista apaixonada por transformar momentos especiais
+                    em
+                    experiências
+                    inesquecíveis. Com anos de experiência, cuidamos de cada detalhe para que seu evento seja perfeito.
+                </p>
+            </div>
+
+            <br><br><br>
+            <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia! Visitei seu site e queria mais informações sobre assessoria"
+                target="_blank" title="FALE AGORA COMIGO" class="btn-default btn-center">FALE AGORA COMIGO</a>
+        </section>
+
+        <section class="slider">
+            <h2>DEPOIMENTOS</h2>
+            <div class="slides" id="slides">
+
+                <div class="review">
+                    <p>“Tive a felicidade de ter a Vera cuidando do meu casamento, e só tenho a agradecer! Desde o
+                        início,
+                        foi atenciosa, organizada e sempre pronta para nos orientar em cada detalhe. No grande dia, me
+                        senti
+                        totalmente tranquila, porque sabia que estava em boas mãos. Tudo saiu ainda melhor do que
+                        sonhamos,
+                        e isso se deve ao carinho e dedicação dela e de sua equipe. Recomendo de olhos fechados!” –
+                        <b>Ana
+                            Caroline Alves</b>
+                    </p>
+                </div>
+                <div class="review">
+                    <p>“A Vera é uma pessoa incrível ! Respeitou minhas vontades e deu dicas valiosas! Recebemos muitos
+                        elogios do trabalho dela e toda sua equipe, desde a cordialidade com os convidados à organização
+                        da
+                        festa. Minhas amigas que ainda vão casar já querem ela como cerimonialista também! Sou muito
+                        grata
+                        pela parceria nesse momento tão único e especial!” – <b>Juliana Oliveira</b></p>
+                </div>
+                <div class="review">
+                    <p>“Maravilhosa!!!!! Deus abençoe grandemente a vida da Vera, atenciosa do começo ao fim, ela fez
+                        tudo e
+                        mais um pouco. Não tenho palavras para expressar o tamanho da minha gratidão por toda ajuda, a
+                        equipe é impecável! É a melhor que temos. 🥰🤍” – <b>Stephanie Dias</b></p>
+                </div>
+                <div class="review">
+                    <p>“Vera é maravilhosa, obrigada por todo carinho comigo e com minha família, ocorreu tudo como
+                        planejado graças a sua organização com os os colaboradores e com roteiro super organizado, sem
+                        nenhuma dor de cabeça para os noivos pudessem aproveitar o máximo !
+                        Trabalho maravilhoso super recomendo ❤️” – <b>Edimara Goncalves</b></p>
+                </div>
+                <div class="review">
+                    <p>“Maravilhoso!! Amei!! Cada detalhe da experiência de uma noiva com recepção, acolhimento e
+                        entrada!!
+                        Obrigado pelo carinho e atenção de um dia especial que ficará guardado para sempre em nossos
+                        corações!!🎊✨️🎉🥰❤️❤️❤️❤️💯” – <b>Mayla Figueiredo</b></p>
+                </div>
+                <div class="review">
+                    <p>“Eu e meu marido indicamos a Vera com certeza, pelo seu comprometimento com nós cliente,
+                        prestativa e
+                        com ideias novas para a cerimônia!! Sua equipe é responsável do começo ao final da festa meus
+                        convidados elogiaram o trabalho da equipe e vcs tem um diferencial com cuidados pessoal com nós
+                        os
+                        noivos sempre prezando pela nossa aparência e bem estar !! Muito obrigada bjos Rosilaine e
+                        Hilário
+                        ♥️🙏🏻” – <b>Rosilaine Aparecida Scatolon de Oliveira</b></p>
+                </div>
+                <div class="review">
+                    <p>“Excelente profissional, tudo perfeito parabéns pelo seu trabalho 👏👏” –
+                        <b>Celia Aparecida Carvalho De Oliveira</b>
+                    </p>
+                </div>
+
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </section>
+
+        <script>
+            const slides = document.getElementById('slides');
+            const totalSlides = slides.children.length;
+            let index = 0;
+
+            function showSlide(i) {
+                slides.style.transform = `translateX(-${i * 100}%)`;
+            }
+
+            function nextSlide() {
+                index = (index + 1) % totalSlides;
+                showSlide(index);
+            }
+
+            function prevSlide() {
+                index = (index - 1 + totalSlides) % totalSlides;
+                showSlide(index);
+            }
+
+            // Scroll automático a cada 3 segundos
+            let autoSlide = setInterval(nextSlide, 3000);
+
+            // Pausar ao passar o mouse
+            const slider = document.querySelector('.slider');
+            slider.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            slider.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, 3000);
+            });
+        </script>
+
+        <section class="portfolio">
+            <h2>MOMENTOS QUE CRIAMOS</h2>
+            <div class="portfolio-grid">
+                <img src="/src/img/eventos/evento-1.jfif" loading="lazy" alt="Evento 1">
+                <img src="/src/img/eventos/evento-2.jfif" loading="lazy" alt="Evento 2">
+                <img src="/src/img/eventos/evento-3.jfif" loading="lazy" alt="Evento 3">
+                <img src="/src/img/eventos/evento-4.jfif" loading="lazy" alt="Evento 4">
+                <img src="/src/img/eventos/evento-5.jfif" loading="lazy" alt="Evento 5">
+                <img src="/src/img/eventos/evento-6.jfif" loading="lazy" alt="Evento 6">
+                <img src="/src/img/eventos/evento-7.jpg" loading="lazy" alt="Evento 7">
+                <img src="/src/img/eventos/evento-8.webp" loading="lazy" alt="Evento 8">
+                <img src="/src/img/eventos/evento-9.webp" loading="lazy" alt="Evento 9">
+                <img src="/src/img/eventos/evento-10.webp" loading="lazy" alt="Evento 10">
+                <img src="/src/img/eventos/evento-11.webp" loading="lazy" alt="Evento 11">
+                <img src="/src/img/eventos/evento-12.webp" loading="lazy" alt="Evento 12">
+                <img src="/src/img/eventos/evento-13.webp" loading="lazy" alt="Evento 13">
+                <img src="/src/img/eventos/evento-14.jpg" loading="lazy" alt="Evento 14">
+                <img src="/src/img/eventos/evento-15.webp" loading="lazy" alt="Evento 15">
+                <img src="/src/img/eventos/evento-16.jpg" loading="lazy" alt="Evento 16">
+            </div>
+        </section>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close" id="close">&times;</span>
+            <img id="lightbox-img" src="" alt="Imagem ampliada">
+        </div>
+        <script>
+            function EventoFotos() {
+                const images = document.querySelectorAll('.portfolio-grid img');
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const closeBtn = document.getElementById('close');
+
+                images.forEach(img => {
+                    img.addEventListener('click', () => {
+                        lightbox.style.display = 'flex';
+                        lightboxImg.src = img.src;//.replace('/300/200', '/1200/800'); // versão maior
+                    });
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    lightbox.style.display = 'none';
+                });
+
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) {
+                        lightbox.style.display = 'none';
+                    }
+                });
+            }
+            EventoFotos();
+        </script>
+
+    </main>
+    <div id="modal-whats" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-head">
+                <img src="/src/img/whatsapp_btn.svg" loading="lazy" alt="WhatsApp Chat" width="35" height="35"><strong>
+                    WhatsApp</strong>
+                <span class="close-modal">&times;</span>
+            </div>
+            <br>
+            <p class="msg">Olá! Vamos falar sobre seu evento?</p>
+            <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia! Visitei seu site e queria mais informações sobre assessoria"
+                title="Falar agora no Whatsapp" target="_blank">
+                <img src="/src/img/whatsapp_btn.svg" loading="lazy" alt="WhatsApp Chat" width="35" height="35">
+                &nbsp;Falar agora no Whatsapp
+            </a>
+        </div>
+    </div>
+    <div id="btn-whatsapp" class="btn-fixo">
+        <img src="/src/img/whatsapp_btn.svg" loading="lazy" width="40" height="40" alt="Enviar WhatsApp">
+    </div>
+    <div id="editor" class="modal-edit" data-pagina="index.html">
+        <div class="modal-edit-content">
+            <textarea rows="20" id="textEdit"></textarea>
+            <label>&nbsp;&nbsp;&nbsp;Visualização:</label>
+            <div id="visualizacao" style="margin:10px;"></div>
+            <div class="btn-container">
+                <button type="button" class="btn-cancelar" onclick="Cancelar()">Cancelar</button>
+                <button type="button" class="btn-atualizar" id="Atualizar">Atualizar</button>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { AtualizarConteudo } from '/src/js/a-teste-edit-module.js';
+
+        (async () => {
+            await AtualizarConteudo();
+        })();
+    </script>
+    <script src="/src/js/a-teste-edit.js"></script>
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer">
+            <div class="item">
+                <strong>Contato</strong>
+                <ul>
+                    <li>(18) 99776-2182</li>
+                </ul>
+            </div>
+            <div class="item">
+                <strong>Rede social</strong>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/mirallia.cerimonialista" target="_blank" title="Instagram">
+                            <img src="/src/img/instagram_icon.svg" loading="lazy" width="20" height="20"
+                                alt="Instagram">
+                            Instagram</a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/vera.mirallia/" target="_blank" title="Facebook">
+                            <img src="/src/img/facebook.svg" loading="lazy" width="20" height="20" alt="Facebook">
+                            Facebook
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2025 Meu Site. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const btnWts = document.getElementById('btn-whatsapp');
+        const modal = document.getElementById("modal-whats");
+        btnWts.onclick = function () {
+            modal.style.display = "block";
+            let ntf = document.querySelector('.ntf-wts');
+            if (ntf) {
+                ntf.remove();
+                sessionStorage.setItem('notificao-whatsapp', 'true');
+            }
+        }
+        modal.querySelector('.close-modal').onclick = function () {
+            modal.style.display = "none";
+        }
+        setTimeout(function () {
+            let value = sessionStorage.getItem('notificao-whatsapp');
+            if (!value) {
+                let elemNtf = document.createElement('div');
+                elemNtf.className = "ntf-wts"
+                elemNtf.textContent = '1';
+                btnWts.appendChild(elemNtf);
+            }
+        }, 600);
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        //localStorage.setItem()
+    </script>
+</body>
+
+</html>

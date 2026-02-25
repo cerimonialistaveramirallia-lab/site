@@ -1,0 +1,7 @@
+https://blurimg.net/
+https://convertio.co/pt/png-webp/
+https://www.bing.com/images/create?FORM=GENEXP
+http://suelenlana.com.br/
+
+rodar servidor http
+http-server
