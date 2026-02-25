@@ -1,0 +1,98 @@
+const modalEdit = document.getElementById('editor');
+const visualizacaoEdit = modalEdit.querySelector('#visualizacao');
+if (window.location.hash == '#editar') {
+    const textEdit = modalEdit.querySelector('#textEdit');
+    document.querySelectorAll('main h1, main h2, main p, main h3, main li').forEach(elem => {
+        const button = document.createElement('button');
+        button.innerHTML = '<img src="/src/img/edit.svg"/>';
+        button.className = 'btn-edit';
+        button.onclick = (e) => {
+            elem.classList.add('edit');
+            modalEdit.style.display = 'block';
+            textEdit.value = e.target.parentNode.innerHTML.replace(/<button.*?<\/button>/g, "").replace(/\n/g, '').replace(/\r/g, '').replace(/   /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ');
+            visualizacaoEdit.innerHTML = e.target.parentNode.outerHTML.replace(/<button.*?<\/button>/g, "");
+        }
+        elem.appendChild(button);
+        if (elem.nodeName == 'LI') {
+            const buttonExcluir = document.createElement('button');
+            buttonExcluir.innerHTML = '<img src="/src/img/delete.svg"/>';
+            buttonExcluir.className = 'btn-edit';
+            buttonExcluir.onclick = (e) => {
+                const result = confirm('Deseja excluir esse item?');
+                if (result) {
+                    elem.classList.add('remover');
+                    document.getElementById('Atualizar').click();
+                }
+            }
+            elem.appendChild(buttonExcluir);
+        }
+    });
+
+    textEdit.onkeyup = (e) => {
+        visualizacaoEdit.querySelector('h1, h2, p, h3, li').innerHTML = e.target.value;
+    };
+    function Cancelar() {
+        modalEdit.style.display = 'none';
+        document.querySelectorAll('main h1.edit, main h2.edit, main p.edit, main h3.edit, main li.edit').forEach(elem => {
+            elem.classList.remove('edit');
+        })
+    }
+
+
+    document.querySelectorAll('main ul').forEach(ul => {
+        const li = document.createElement("li");
+        const button = document.createElement('button');
+        button.innerHTML = '<img src="/src/img/add.svg"/>';
+        button.className = 'btn-edit';
+        button.onclick = (e) => {
+            li.classList.add('edit');
+            modalEdit.style.display = 'block';
+            textEdit.value = "";
+            visualizacaoEdit.innerHTML = `<li></li>`;//e.target.parentNode.outerHTML.replace('<button class="btn-edit">Editar</button>', '');
+        }
+        li.appendChild(button);
+        ul.appendChild(li);
+    });
+
+    const portfolioFotos = document.querySelector('.portfolio-grid');
+    if (portfolioFotos) {
+        portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
+</label></div><button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>` + portfolioFotos.innerHTML;
+        EventoFotos();
+    }
+
+
+}
+async function uploadImage() {
+    const file = document.getElementById("fileInput").files[0];
+    if (file) {
+        const reader = new FileReader();
+
+        reader.onload = async function () {
+            const base64Content = reader.result.split(',')[1];
+            const fileName = "img_" + Date.now() + ".png";
+            const response = await fetch(`https://api.github.com/repos/tiago-creator/cerimonialista/contents/src/img/eventos/${fileName}`, {
+                method: "PUT",
+                headers: {
+                    "Authorization": "token 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",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: "Upload da imagem",
+                    content: base64Content
+                })
+            });
+            const data = await response.json();
+            if (data.content && data.content.name == fileName) {
+                document.querySelector('.portfolio-grid input').remove();
+                document.querySelector('.portfolio-grid button').remove();
+                document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
+                console.log(data);
+                document.getElementById('Atualizar').click();
+            }
+        };
+        reader.readAsDataURL(file);
+    } else {
+        alert('Adicione primeiro a imagem para salvar!');
+    }
+}
