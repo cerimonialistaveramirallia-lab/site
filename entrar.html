@@ -182,7 +182,9 @@
             <h2>Acesse sua Conta</h2>
             <form action="#" method="post">
                 <br>
-                <div id="g_id_onload" data-client_id="SEU_CLIENT_ID_AQUI" data-callback="handleCredentialResponse">
+                <div id="g_id_onload"
+                    data-client_id="955599428349-4fsmokm6jlejdpq252fi99gturl7ncju.apps.googleusercontent.com"
+                    data-callback="handleCredentialResponse">
                 </div>
                 <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline"
                     data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left">
@@ -198,17 +200,8 @@
             // Decodificando o token
             const payload = JSON.parse(atob(jwt.split('.')[1]));
 
-            /*
-            document.getElementById("user-info").innerHTML = `
-      <h3>Bem-vindo, ${payload.name}</h3>
-      <p>Email: ${payload.email}</p>
-      <img src="${payload.picture}" width="100">
-    `;*/
-
-            console.log("Dados do usuário:", payload);
-
-            // Aqui você pode enviar o token para seu backend
-            // fetch('/login-google', { method: 'POST', body: JSON.stringify({ token: jwt }) })
+            document.cookie = "session=" + payload.sub + "; path=/; max-age=31536000; Secure; SameSite=Strict";
+            window.location.href = '/';
         }
     </script>
 </body>
