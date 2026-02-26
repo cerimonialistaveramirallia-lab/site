@@ -14,72 +14,54 @@ export function AtualizarConteudo() {
     document.getElementById('Atualizar').onclick = async () => {
         let podeSalvar = confirm('Confirme para Ok para salvar!');
         if (podeSalvar) {
-            // Atualiza conteúdo do editor
-            const textEdit = document.getElementById('textEdit'); // Certifique-se de ter esse elemento
-            const edit = document.querySelector('.edit');
-            if (edit) {
-                edit.innerHTML = textEdit.value;
-                edit.classList.remove('edit');
-                document.querySelectorAll('.btn-edit').forEach(elem => {
-                    if(elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == 'Adicionar novo item'){
-                        elem.parentNode.remove();
-                    } else
-                        elem.remove()
-                });
-                textEdit.value = "";
-                visualizacaoEdit.innerHTML = "";
-            }
-
-            const itemRemover = document.querySelector('.remover');
-            if (itemRemover)
-                itemRemover.remove()
-
-            if(modalEdit)
-                modalEdit.style.display = 'none';
-
-            // Pega HTML da página
-            const conteudo = document.documentElement.outerHTML;
-            const base64 = toBase64(conteudo);
-
-            // Pega SHA do arquivo existente (se houver)
-            let sha;
-            try {
-                const arquivo = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
-                    owner,
-                    repo,
-                    path
-                });
-                sha = arquivo.data.sha;
-            } catch (error) {
-                if (error.status !== 404) throw error;
-                // 404 = arquivo não existe
-            }
-
-            try {
-                const response = await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
-                    owner,
-                    repo,
-                    path,
-                    message: "Atualiza arquivo via Octokit",
-                    committer: {
-                        name: "Tiago Creator",
-                        email: "tiago@exemplo.com"
-                    },
-                    content: base64,
-                    sha // apenas se o arquivo existe
-                });
-
-                console.log("✅ Arquivo atualizado com sucesso!");
-                console.log("Commit URL:", response.data.commit.html_url);
-                let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer!');
-                if (value) {
-                    window.location.reload();
+            let user = getCookie('session');
+            if (user) {
+                user = JSON.parse(user);
+                // Atualiza conteúdo do editor
+                const textEdit = document.getElementById('textEdit'); // Certifique-se de ter esse elemento
+                const edit = document.querySelector('.edit');
+                if (edit) {
+                    edit.innerHTML = textEdit.value;
+                    edit.classList.remove('edit');
+                    document.querySelectorAll('.btn-edit').forEach(elem => {
+                        if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == 'Adicionar novo item') {
+                            elem.parentNode.remove();
+                        } else
+                            elem.remove()
+                    });
+                    textEdit.value = "";
+                    visualizacaoEdit.innerHTML = "";
                 }
-            } catch (err) {
-                alert("❌ Erro ao atualizar arquivo: " + err);
-            } finally {
-                //modalEdit.style.display = 'block';
+
+                const itemRemover = document.querySelector('.remover');
+                if (itemRemover)
+                    itemRemover.remove()
+
+                if (modalEdit)
+                    modalEdit.style.display = 'none';
+
+                // Pega HTML da página
+                const conteudo = document.documentElement.outerHTML;
+                const base64 = toBase64(conteudo);
+
+
+
+                const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ path, content: base64, tipo: 'html', id: user.id })
+                }).then(res => res.json()).catch(er => {
+                    alert("❌ Erro ao atualizar arquivo: " + err);
+                });
+
+                if (res.content) {
+                    let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer!');
+                    if (value) {
+                        window.location.reload();
+                    }
+                }
             }
+
         }
     }
 }

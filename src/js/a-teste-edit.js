@@ -69,26 +69,26 @@ async function uploadImage() {
         const reader = new FileReader();
 
         reader.onload = async function () {
-            const base64Content = reader.result.split(',')[1];
-            const fileName = "img_" + Date.now() + ".png";
-            const response = await fetch(`https://api.github.com/repos/tiago-creator/cerimonialista/contents/src/img/eventos/${fileName}`, {
-                method: "PUT",
-                headers: {
-                    "Authorization": "token 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",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    message: "Upload da imagem",
-                    content: base64Content
-                })
-            });
-            const data = await response.json();
-            if (data.content && data.content.name == fileName) {
-                document.querySelector('.portfolio-grid input').remove();
-                document.querySelector('.portfolio-grid button').remove();
-                document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
-                console.log(data);
-                document.getElementById('Atualizar').click();
+            let user = getCookie('session');
+            if (user) {
+                const base64Content = reader.result.split(',')[1];
+                const fileName = "img_" + Date.now() + ".png";
+
+                const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ path: fileName, content: base64Content, tipo: 'img', id: user.id })
+                }).then(res => res.json()).catch(er => {
+                    alert("❌ Erro ao atualizar arquivo: " + err);
+                });
+                const data = await res.json();
+                if (data.content && data.content.name == fileName) {
+                    document.querySelector('.portfolio-grid input').remove();
+                    document.querySelector('.portfolio-grid button').remove();
+                    document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
+                    console.log(data);
+                    document.getElementById('Atualizar').click();
+                }
             }
         };
         reader.readAsDataURL(file);
@@ -101,10 +101,10 @@ async function uploadImage() {
 }
 
 async function uploadFile(path, content) {
-  const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ path, content })
-  });
-  return res.json();
+    const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ path, content })
+    });
+    return res.json();
 }
