@@ -99,12 +99,3 @@ async function uploadImage() {
 
 
 }
-
-async function uploadFile(path, content) {
-    const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ path, content })
-    });
-    return res.json();
-}
