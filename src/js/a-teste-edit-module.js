@@ -47,7 +47,7 @@ export function AtualizarConteudo() {
 
 
                 const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
-                    method: "POST",
+                    method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ path, content: base64, tipo: 'html', id: user.id })
                 }).then(res => res.json()).catch(er => {

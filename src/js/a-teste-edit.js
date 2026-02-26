@@ -75,7 +75,7 @@ async function uploadImage() {
                 const fileName = "img_" + Date.now() + ".png";
 
                 const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
-                    method: "POST",
+                    method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ path: fileName, content: base64Content, tipo: 'img', id: user.id })
                 }).then(res => res.json()).catch(er => {
