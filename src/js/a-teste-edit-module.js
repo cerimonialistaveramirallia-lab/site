@@ -24,7 +24,7 @@ export function AtualizarConteudo() {
                     edit.innerHTML = textEdit.value;
                     edit.classList.remove('edit');
                     document.querySelectorAll('.btn-edit').forEach(elem => {
-                        if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == 'Adicionar novo item') {
+                        if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == '') {
                             elem.parentNode.remove();
                         } else
                             elem.remove()
