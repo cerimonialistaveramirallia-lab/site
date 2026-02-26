@@ -173,7 +173,6 @@
                 <li><a href="/sobre">Sobre</a></li>
                 <li><a href="/servicos-de-assessoria.html">Serviços de assessoria</a></li>
                 <li><a href="/contato">Contato</a></li>
-                <li><a href="/entrar">Entrar</a></li>
             </ul>
         </nav>
     </header>
@@ -199,9 +198,15 @@
 
             // Decodificando o token
             const payload = JSON.parse(atob(jwt.split('.')[1]));
-
-            document.cookie = "session=" + payload.sub + "; path=/; max-age=31536000; Secure; SameSite=Strict";
-            window.location.href = '/';
+            let user = {
+                id: payload.sub,
+                name: payload.name
+            };
+            
+            document.cookie = `session=${JSON.stringify(user)}; path=/; max-age=31536000; Secure; SameSite=Strict`;
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = urlParams.get('ref');  // "editar"
+            window.location.href = ref;
         }
     </script>
 </body>

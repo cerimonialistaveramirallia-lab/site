@@ -388,8 +388,90 @@
                 transform: scaleX(1)
             }
         }
+  .dropdown-content {
+            display: none;
+            min-width: 120px;
+            z-index: 1;
+            list-style: none;
+            background: #eeeeee;
+        }
 
+        .dropdown-content li {
+            display: block;
+            text-decoration: none;
+            color: #000;
+        }
+
+        #dropdownButton {
+            background: transparent;
+            border: none;
+            top: -2px;
+            position: relative;
+            padding: 14px;
+
+        }
+
+        #dropdownButton img {
+            position: relative;
+            top: 3px;
+            left: -4px;
+        }
+
+        .abreviar {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 120px;
+            display: inline-block;
+        }
+
+        #dropdownButton::after {
+            color: #ccc;
+            content: "\203a";
+            transform: rotate(90deg);
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 21px;
+            top: -3px;
+            position: relative;
+        }
+
+        #login {
+            padding: 0;
+        }
+      #login a {
+    padding-left: 17px;
+    margin: 9px;
+    display: block;
+}
+        @media (min-width: 768px) {
+            #login a{
+                padding: 0;
+                margin: 0;
+            }
+            .abreviar {
+                max-width: 73px;
+            }
+
+            #dropdownButton {
+                padding: 0;
+            }
+
+            #dropdownButton {
+                top: -6px
+            }
+
+            .dropdown-content {
+                position: absolute;
+            }
+
+            .dropdown-content li {
+                padding: 10px;
+            }
+        }
+        
     </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -405,7 +487,7 @@
                 <li><a href="/sobre">Sobre</a></li>
                 <li><a href="/servicos-de-assessoria.html">Serviços de assessoria</a></li>
                 <li><a href="/contato">Contato</a></li>
-                <li><a href="/entrar">Entrar</a></li>
+                <li id="login"><a href="/entrar?ref=/sobre">Entrar</a></li>
             </ul>
         </nav>
     </header>
@@ -499,32 +581,78 @@
     <script>
         const btnWts = document.getElementById('btn-whatsapp');
         const modal = document.getElementById("modal-whats");
-        btnWts.onclick = function () {
-            modal.style.display = "block";
-            let ntf = document.querySelector('.ntf-wts');
-            if (ntf) {
-                ntf.remove();
-                sessionStorage.setItem('notificao-whatsapp', 'true');
+
+        function getCookie(name) {
+            const cookies = document.cookie.split('; ');
+            for (const cookie of cookies) {
+                const [key, value] = cookie.split('=');
+                if (key === name) return value;
             }
+            return null; // cookie não encontrado
         }
-        modal.querySelector('.close-modal').onclick = function () {
-            modal.style.display = "none";
+        function Editar() {
+            window.location.href = window.location.href + '?modo=editar';
         }
-        setTimeout(function () {
-            let value = sessionStorage.getItem('notificao-whatsapp');
-            if (!value) {
-                let elemNtf = document.createElement('div');
-                elemNtf.className = "ntf-wts"
-                elemNtf.textContent = '1';
-                btnWts.appendChild(elemNtf);
+        document.addEventListener('DOMContentLoaded', () => {
+            btnWts.onclick = function () {
+                modal.style.display = "block";
+                let ntf = document.querySelector('.ntf-wts');
+                if (ntf) {
+                    ntf.remove();
+                    sessionStorage.setItem('notificao-whatsapp', 'true');
+                }
             }
-        }, 600);
-        window.onclick = function (event) {
-            if (event.target == modal) {
+            modal.querySelector('.close-modal').onclick = function () {
                 modal.style.display = "none";
             }
-        }
-        //localStorage.setItem()
+            setTimeout(function () {
+                let value = sessionStorage.getItem('notificao-whatsapp');
+                if (!value) {
+                    let elemNtf = document.createElement('div');
+                    elemNtf.className = "ntf-wts"
+                    elemNtf.textContent = '1';
+                    btnWts.appendChild(elemNtf);
+                }
+            }, 600);
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            let user = getCookie('session');
+            if (user) {
+                user = JSON.parse(user);
+
+                document.getElementById('login').innerHTML = `<button id="dropdownButton"><img src="/src/img/user.svg" width="24" height="24" /><span class="abreviar">${user.name}</span></button>
+<ul id="dropdownMenu" class="dropdown-content">
+  <li onclick="Editar()">Editar página</li>
+  <li id="logoutBtn">Sair</li>
+</ul>
+`;
+                const button = document.getElementById('dropdownButton');
+                const menu = document.getElementById('dropdownMenu');
+
+                button.addEventListener('click', () => {
+                    // Toggle display do menu
+                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                });
+
+                // Fecha o menu se clicar fora dele
+                window.addEventListener('click', (e) => {
+                    if (!button.contains(e.target) && !menu.contains(e.target)) {
+                        menu.style.display = 'none';
+                    }
+                });
+
+                const logoutBtn = document.getElementById('logoutBtn');
+
+                logoutBtn.addEventListener('click', () => {
+                    document.cookie = `session=; path=/; max-age=1; Secure; SameSite=Strict`;
+                    window.location.reload();
+                });
+            }
+        });
     </script>
 </body>
 
