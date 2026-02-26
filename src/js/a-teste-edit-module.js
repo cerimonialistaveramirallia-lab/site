@@ -1,11 +1,6 @@
-import { Octokit } from "https://esm.sh/@octokit/core";
 
 export function AtualizarConteudo() {
-    const token = "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"; // ⚠️ nunca exponha isso em produção!
-    const owner = "tiago-creator";
-    const repo = "cerimonialista";
     const path = document.getElementById('editor').dataset.pagina;
-    const octokit = new Octokit({ auth: token });
 
     function toBase64(str) {
         return btoa(unescape(encodeURIComponent(str)));
