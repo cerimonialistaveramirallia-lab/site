@@ -33,6 +33,13 @@ export function AtualizarConteudo() {
                     visualizacaoEdit.innerHTML = "";
                 }
 
+                const btnWhats= document.getElementById("btn-whatsapp");
+                if(btnWhats){
+                    const ntfWts = btnWhats.querySelector('.ntf-wts');
+                    if(ntfWts)
+                        ntfWts.remove();
+                }
+
                 const itemRemover = document.querySelector('.remover');
                 if (itemRemover)
                     itemRemover.remove()
