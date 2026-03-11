@@ -28,13 +28,15 @@
   }
 
   .btn-edit {
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      padding: 5px;
-      margin-left: 10px;
-      position: relative;
-      top: 6px;
+    border: solid gray 1px;
+    background: #fffcfc;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0;
+    height: 37px;
+    line-height: 0;
+    position: absolute;
   }
 
   .btn-edit img {
