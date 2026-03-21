@@ -72,14 +72,25 @@
       border-radius: 5px;
   }
 
-
+.portfolio-grid div{
+        background: #fff;
+    border-radius: 73px;
+    height: 121px;
+    width: 121px;
+    margin: auto;
+    cursor: pointer;
+}
   .upload-btn {
-      background-image: url(/src/img/add-photo.svg);
-      width: 100px;
-      height: 100px;
-      display: block;
-      background-repeat: no-repeat;
-      background-size: cover;
+    background-image: url(/src/img/add-photo.svg);
+    width: 100px;
+    height: 100px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    position: relative;
+    top: 11px;
+    cursor: pointer;
   }
 
   .btn-enviar-foto {
