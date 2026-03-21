@@ -59,9 +59,14 @@ if (window.location.search.indexOf('modo=editar') > -1) {
         portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
 </label></div><button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>` + portfolioFotos.innerHTML;
         EventoFotos();
+        const inputFile = document.getElementById("fileInput");
+    //const previewFile = document.getElementById("preview");
+    inputFile.addEventListener("change", function () {
+        uploadImage();
+    });
     }
 
-
+    
 }
 async function uploadImage() {
     const file = document.getElementById("fileInput").files[0];
