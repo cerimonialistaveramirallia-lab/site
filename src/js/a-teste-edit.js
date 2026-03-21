@@ -77,6 +77,7 @@ async function uploadImage() {
         reader.onload = async function () {
             let user = getCookie('session');
             if (user) {
+                user = JSON.parse(user);
                 const base64Content = reader.result.split(',')[1];
                 const fileName = "img_" + Date.now() + ".png";
 
