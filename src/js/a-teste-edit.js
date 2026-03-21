@@ -88,12 +88,11 @@ async function uploadImage() {
                 }).then(res => res.json()).catch(er => {
                     alert("❌ Erro ao atualizar arquivo: " + err);
                 });
-                const data = await res.json();
-                if (data.content && data.content.name == fileName) {
+                if (res.content && res.content.name == fileName) {
                     document.querySelector('.portfolio-grid input').remove();
                     document.querySelector('.portfolio-grid button').remove();
                     document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
-                    console.log(data);
+                    console.log(res);
                     document.getElementById('Atualizar').click();
                 }
             }
