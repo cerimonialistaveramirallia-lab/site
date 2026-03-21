@@ -94,6 +94,8 @@ async function uploadImage() {
                     document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
                     console.log(res);
                     document.getElementById('Atualizar').click();
+                } else {
+                    alert('Não foi possível salvar foto.')
                 }
             }
         };
