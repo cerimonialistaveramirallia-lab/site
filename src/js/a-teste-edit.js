@@ -89,8 +89,8 @@ async function uploadImage() {
                     alert("❌ Erro ao atualizar arquivo: " + err);
                 });
                 if (res.content && res.content.name == fileName) {
-                    document.querySelector('.portfolio-grid input').remove();
-                    document.querySelector('.portfolio-grid button').remove();
+                    document.querySelector('.portfolio-grid div').remove();
+                    //document.querySelector('.portfolio-grid button').remove();
                     document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
                     console.log(res);
                     document.getElementById('Atualizar').click();
