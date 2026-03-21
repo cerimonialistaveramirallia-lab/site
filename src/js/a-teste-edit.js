@@ -57,7 +57,8 @@ if (window.location.search.indexOf('modo=editar') > -1) {
     const portfolioFotos = document.querySelector('.portfolio-grid');
     if (portfolioFotos) {
         portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
-</label></div><button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>` + portfolioFotos.innerHTML;
+</label></div>` + portfolioFotos.innerHTML;
+//<button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>
         EventoFotos();
         const inputFile = document.getElementById("fileInput");
     //const previewFile = document.getElementById("preview");

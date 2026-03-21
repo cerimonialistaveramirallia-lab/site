@@ -28,6 +28,10 @@ export function AtualizarConteudo() {
                     visualizacaoEdit.innerHTML = "";
                 }
 
+                const elemAdicionarFoto = document.querySelector('.portfolio-grid div');
+                if(elemAdicionarFoto)
+                    elemAdicionarFoto.remove();
+                
                 const btnWhats= document.getElementById("btn-whatsapp");
                 if(btnWhats){
                     const ntfWts = btnWhats.querySelector('.ntf-wts');
