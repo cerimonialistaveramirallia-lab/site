@@ -18,15 +18,17 @@ export function AtualizarConteudo() {
                 if (edit) {
                     edit.innerHTML = textEdit.value;
                     edit.classList.remove('edit');
-                    document.querySelectorAll('.btn-edit').forEach(elem => {
-                        if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == '') {
-                            elem.parentNode.remove();
-                        } else
-                            elem.remove()
-                    });
+                    
                     textEdit.value = "";
                     visualizacaoEdit.innerHTML = "";
                 }
+
+                document.querySelectorAll('.btn-edit').forEach(elem => {
+                    if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == '') {
+                        elem.parentNode.remove();
+                    } else
+                        elem.remove()
+                });
 
                 const login = document.getElementById('login');
                 if(login){
