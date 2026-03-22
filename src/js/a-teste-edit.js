@@ -89,7 +89,9 @@ async function btndelfoto(path, e) {
         }).then(res => res.json()).catch(err => {
             alert("❌ Erro ao atualizar arquivo: " + err);
         });
-        console.log(res);
+        if(res.data){
+            document.getElementById('Atualizar').click();
+        }
     }
 
 }
