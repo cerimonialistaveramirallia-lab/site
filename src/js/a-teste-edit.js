@@ -56,19 +56,44 @@ if (window.location.search.indexOf('modo=editar') > -1) {
 
     const portfolioFotos = document.querySelector('.portfolio-grid');
     if (portfolioFotos) {
+
+        portfolioFotos.querySelectorAll('span').forEach(item => {
+            let path = item.querySelector('img').src.split('/').pop();
+            item.innerHTML += `<button onclick="btndelfoto('${path}', this)">x</button>`;
+        });
         portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
 </label></div>` + portfolioFotos.innerHTML;
-//<button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>
+        //<button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>
         EventoFotos();
         const inputFile = document.getElementById("fileInput");
-    //const previewFile = document.getElementById("preview");
-    inputFile.addEventListener("change", function () {
-        uploadImage();
-    });
+        //const previewFile = document.getElementById("preview");
+        inputFile.addEventListener("change", function () {
+            uploadImage();
+        });
     }
 
-    
+
 }
+
+async function btndelfoto(path, e) {
+    let user = getCookie('session');
+    if (user) {
+        user = JSON.parse(user);
+        e.parentElement.remove();
+        console.log(path);
+
+        const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ path: path, content: null, tipo: 'deleteImg', id: user.id })
+        }).then(res => res.json()).catch(er => {
+            alert("❌ Erro ao atualizar arquivo: " + err);
+        });
+        console.log(res);
+    }
+
+}
+
 async function uploadImage() {
     const file = document.getElementById("fileInput").files[0];
     if (file) {
@@ -91,7 +116,7 @@ async function uploadImage() {
                 if (res.content && res.content.name == fileName) {
                     document.querySelector('.portfolio-grid div').remove();
                     //document.querySelector('.portfolio-grid button').remove();
-                    document.querySelector('.portfolio-grid').innerHTML += `<img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}">`;
+                    document.querySelector('.portfolio-grid').innerHTML += `<span><img src="/src/img/eventos/${fileName}" loading="lazy" alt="Evento ${(document.querySelectorAll('.portfolio-grid img').length + 1)}"></span>`;
                     console.log(res);
                     document.getElementById('Atualizar').click();
                 } else {
