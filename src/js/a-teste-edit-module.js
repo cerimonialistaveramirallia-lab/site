@@ -39,6 +39,10 @@ export function AtualizarConteudo() {
                 if(elemAdicionarFoto)
                     elemAdicionarFoto.remove();
                 
+                document.querySelectorAll('.portfolio-grid button').forEach(x => {
+                    x.remove();
+                })
+
                 const btnWhats= document.getElementById("btn-whatsapp");
                 if(btnWhats){
                     const ntfWts = btnWhats.querySelector('.ntf-wts');
