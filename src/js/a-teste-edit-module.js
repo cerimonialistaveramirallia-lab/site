@@ -28,6 +28,11 @@ export function AtualizarConteudo() {
                     visualizacaoEdit.innerHTML = "";
                 }
 
+                const login = document.getElementById('login');
+                if(login){
+                    login.innerHTML = `<a href="/entrar?ref=${window.location.pathname}">Entrar</a>`;
+                }
+
                 const elemAdicionarFoto = document.querySelector('.portfolio-grid div');
                 if(elemAdicionarFoto)
                     elemAdicionarFoto.remove();
