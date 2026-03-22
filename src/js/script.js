@@ -10,9 +10,17 @@ const btnWts = document.getElementById('btn-whatsapp');
             return null; // cookie não encontrado
         }
         function Editar() {
-            window.location.href = window.location.href + '?modo=editar';
+            if(window.location.href.indexOf('?modo=editar') > -1)
+                window.location.href = window.location.pathname;
+            else
+                window.location.href = window.location.href + '?modo=editar';
         }
         document.addEventListener('DOMContentLoaded', () => {
+             if(window.location.href.indexOf('?modo=editar') > -1){
+                btnEditar = document.querySelector('[onclick="Editar()"]');
+                if(btnEditar)
+                    btnEditar.innerText = 'Sair edição';
+            }
             btnWts.onclick = function () {
                 modal.style.display = "block";
                 let ntf = document.querySelector('.ntf-wts');
