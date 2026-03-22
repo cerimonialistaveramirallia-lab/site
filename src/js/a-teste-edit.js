@@ -86,7 +86,7 @@ async function btndelfoto(path, e) {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ path: path, content: null, tipo: 'deleteImg', id: user.id })
-        }).then(res => res.json()).catch(er => {
+        }).then(res => res.json()).catch(err => {
             alert("❌ Erro ao atualizar arquivo: " + err);
         });
         console.log(res);
