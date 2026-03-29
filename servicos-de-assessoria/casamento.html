@@ -190,17 +190,12 @@
             <input type="checkbox" id="menu-toggle">
             <label for="menu-toggle" class="menu-icon">☰</label>
 
-            <ul class="menu">
+             <ul class="menu">
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/sobre.html">Sobre</a></li>
                 <li><a href="/servicos-de-assessoria.html">Serviços de assessoria</a></li>
                 <li><a href="/contato.html">Contato</a></li>
-                <li id="login"><button id="dropdownButton"><img src="/src/img/user.svg" width="24" height="24"><span class="abreviar">Vera Mirallia Cerimonialista</span></button>
-<ul id="dropdownMenu" class="dropdown-content" style="display: none;">
-  <li onclick="Editar()">Editar página</li>
-  <li id="logoutBtn">Sair</li>
-</ul>
-</li>
+                <li id="login"><a href="/entrar?ref=/servicos-de-assessoria/aniversario">Entrar</a></li>
             </ul>
         </nav>
     </header>
@@ -525,6 +520,7 @@
             <textarea rows="20" id="textEdit"></textarea>
             <label>&nbsp;&nbsp;&nbsp;Visualização:</label>
             <div id="visualizacao" style="margin:10px;"></div>
+            <br><br>
             <div class="btn-container">
                 <button type="button" class="btn-cancelar" onclick="Cancelar()">Cancelar</button>
                 <button type="button" class="btn-atualizar" id="Atualizar">Atualizar</button>

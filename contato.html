@@ -485,6 +485,10 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="/src/css/edit.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/src/css/edit.css">
+    </noscript>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
@@ -519,35 +523,35 @@
                 <div class="itens">
                     <div class="item">
                         <b>Telefone</b>
-                        <div>
+                        <p>
                             <a href="tel:018997762182" target="_blank" title="Ligar">(18) 99776-2182</a>
-                        </div>
+                        </p>
                     </div>
                     <div class="item">
                         <b>WhatsApp</b>
-                        <div>
+                        <p>
                             <a href="https://api.whatsapp.com/send/?phone=5518997762182&text=Olá Vera Lucia Mirallia! Visitei seu site e queria mais informações sobre assessoria"
                                 target="_blank" title="(18) 99776-2182" class="btn-default">(18) 99776-2182 <img src="/src/img/abrir_link.svg" width="12" height="12" alt="Abrir WhatsApp"></a>
-                        </div>
+                        </p>
                     </div>
                     <div class="item">
                         <b>Instagram</b>
-                        <div>
+                        <p>
                             <a href="https://www.instagram.com/mirallia.cerimonialista" target="_blank"
                                 title="Instagram">
                                 mirallia.cerimonialista <img src="/src/img/abrir_link.svg" width="12" height="12" alt="Abrir Instagram"></a>
-                        </div>
+                        </p>
                     </div>
                     <div class="item">
                         <b>Facebook</b>
-                        <div>
+                        <p>
                             <a href="https://www.facebook.com/vera.mirallia/" target="_blank" title="Instagram">
                                 vera.mirallia <img src="/src/img/abrir_link.svg" width="12" height="12" alt="Abrir Facebook"></a>
-                        </div>
+                            </p>
                     </div>
                     <div class="item">
                         <b>Onde estou</b>
-                        <div>Presidente Prudente - SP</div>
+                        <p>Presidente Prudente - SP</p>
                     </div>
                 </div>
             </div>
@@ -574,6 +578,26 @@
     <div id="btn-whatsapp" class="btn-fixo">
         <img src="/src/img/whatsapp_btn.svg" loading="lazy" width="40" height="40" alt="Enviar WhatsApp">
     </div>
+    <div id="editor" class="modal-edit" data-pagina="sobre.html">
+        <div class="modal-edit-content">
+            <textarea rows="20" id="textEdit"></textarea>
+            <label>&nbsp;&nbsp;&nbsp;Visualização:</label>
+            <div id="visualizacao" style="margin:10px;"></div>
+            <br><br>
+            <div class="btn-container">
+                <button type="button" class="btn-cancelar" onclick="Cancelar()">Cancelar</button>
+                <button type="button" class="btn-atualizar" id="Atualizar">Atualizar</button>
+            </div>
+        </div>
+    </div>
+     <script type="module">
+        import { AtualizarConteudo } from '/src/js/a-teste-edit-module.js';
+
+        (async () => {
+            await AtualizarConteudo();
+        })();
+    </script>
+    <script src="/src/js/a-teste-edit.js"></script>
     <!-- Rodapé -->
     <footer>
         <div class="footer">
