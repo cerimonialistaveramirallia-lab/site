@@ -51,17 +51,14 @@ export function AtualizarConteudo() {
                 const base64 = toBase64(conteudo);
 
                 e.target.style.display = "";
-                /* const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+                const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ path, content: base64, tipo: 'html', id: user.id })
                 }).then(res => res.json()).catch(er => {
                     alert("❌ Erro ao atualizar arquivo: " + err);
                 });
- */
-                let res = {
-                    content: null
-                };
+
                 if (res.content) {
                     let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer!');
                     window.location.reload();
