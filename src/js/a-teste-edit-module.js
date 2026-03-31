@@ -6,23 +6,12 @@ export function AtualizarConteudo() {
         return btoa(unescape(encodeURIComponent(str)));
     }
 
-    document.getElementById('Atualizar').onclick = async () => {
+    document.getElementById('salvar').onclick = async () => {
         let podeSalvar = confirm('Confirme para Ok para salvar!');
         if (podeSalvar) {
             let user = getCookie('session');
             if (user) {
                 user = JSON.parse(user);
-                // Atualiza conteúdo do editor
-                const textEdit = document.getElementById('textEdit'); // Certifique-se de ter esse elemento
-                const edit = document.querySelector('.edit');
-                if (edit) {
-                    edit.innerHTML = textEdit.value;
-                    edit.classList.remove('edit');
-                    
-                    textEdit.value = "";
-                    visualizacaoEdit.innerHTML = "";
-                }
-
                 document.querySelectorAll('.btn-edit').forEach(elem => {
                     if (elem.parentNode.tagName == 'LI' && elem.parentNode.innerText.trim() == '') {
                         elem.parentNode.remove();
@@ -31,22 +20,22 @@ export function AtualizarConteudo() {
                 });
 
                 const login = document.getElementById('login');
-                if(login){
+                if (login) {
                     login.innerHTML = `<a href="/entrar?ref=${window.location.pathname}">Entrar</a>`;
                 }
 
                 const elemAdicionarFoto = document.querySelector('.portfolio-grid div');
-                if(elemAdicionarFoto)
+                if (elemAdicionarFoto)
                     elemAdicionarFoto.remove();
-                
+
                 document.querySelectorAll('.portfolio-grid button').forEach(x => {
                     x.remove();
                 })
 
-                const btnWhats= document.getElementById("btn-whatsapp");
-                if(btnWhats){
+                const btnWhats = document.getElementById("btn-whatsapp");
+                if (btnWhats) {
                     const ntfWts = btnWhats.querySelector('.ntf-wts');
-                    if(ntfWts)
+                    if (ntfWts)
                         ntfWts.remove();
                 }
 
@@ -60,8 +49,6 @@ export function AtualizarConteudo() {
                 // Pega HTML da página
                 const conteudo = document.documentElement.outerHTML;
                 const base64 = toBase64(conteudo);
-
-
 
                 const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
                     method: "PUT",
@@ -78,7 +65,43 @@ export function AtualizarConteudo() {
                     }
                 }
             }
-
         }
+    };
+
+    document.getElementById('Atualizar').onclick = async () => {
+        // Atualiza conteúdo do editor
+        const textEdit = document.getElementById('textEdit'); // Certifique-se de ter esse elemento
+        const edit = document.querySelector('.edit');
+        if (edit) {
+            edit.innerHTML = textEdit.value;
+            edit.classList.remove('edit');
+            textEdit.value = "";
+            visualizacaoEdit.innerHTML = "";
+
+            const button = document.createElement('button');
+            button.innerHTML = '<img src="/src/img/edit.svg"/>';
+            button.className = 'btn-edit';
+            button.onclick = (e) => {
+                edit.classList.add('edit');
+                modalEdit.style.display = 'block';
+                textEdit.value = e.target.parentNode.innerHTML.replace(/<button.*?<\/button>/g, "").replace(/\n/g, '').replace(/\r/g, '').replace(/   /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ');
+                visualizacaoEdit.innerHTML = e.target.parentNode.outerHTML.replace(/<button.*?<\/button>/g, "");
+            }
+            edit.appendChild(button);
+            if (edit.nodeName == 'LI') {
+                const buttonExcluir = document.createElement('button');
+                buttonExcluir.innerHTML = '<img src="/src/img/delete.svg"/>';
+                buttonExcluir.className = 'btn-edit';
+                buttonExcluir.onclick = (e) => {
+                    const result = confirm('Deseja excluir esse item?');
+                    if (result) {
+                        edit.classList.add('remover');
+                        document.getElementById('Atualizar').click();
+                    }
+                }
+                edit.appendChild(buttonExcluir);
+            }
+        }
+        modalEdit.style.display = 'none';
     }
 }

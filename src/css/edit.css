@@ -28,16 +28,18 @@
   }
 
   .btn-edit {
-    border: solid gray 1px;
-    background: #fffcfc;
-    border-radius: 20px;
-    cursor: pointer;
-    padding: 5px;
-    margin: 0;
-    height: 37px;
-    line-height: 0;
-    position: absolute;
+      border: solid gray 1px;
+      background: #fffcfc;
+      border-radius: 20px;
+      cursor: pointer;
+      padding: 5px;
+      margin: 0;
+      height: 37px;
+      line-height: 0;
+      position: absolute;
   }
+
+
 
   .btn-edit img {
       pointer-events: none;
@@ -64,49 +66,64 @@
       border-radius: 5px;
   }
 
-  .btn-atualizar {
+  .btn-salvar {
+      position: fixed;
+      width: 134px;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: rgb(3, 143, 66);
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      display: none;
+  }
+
+  .btn-atualizar {
+      background-color: rgb(0, 119, 230);
       color: #fff;
       padding: 10px;
       border: none;
       border-radius: 5px;
   }
 
-.portfolio-grid div{
-        background: #fff;
-    border-radius: 73px;
-    height: 121px;
-    width: 121px;
-    margin: auto;
-    cursor: pointer;
-}
-.portfolio-grid span{
-    position: relative;
-}
+  .portfolio-grid div {
+      background: #fff;
+      border-radius: 73px;
+      height: 121px;
+      width: 121px;
+      margin: auto;
+      cursor: pointer;
+  }
 
-.portfolio-grid button{
- position: absolute;
-    top: 8px;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    border-radius: 50px;
-    border: none;
-    box-shadow: 0 6px 9px rgb(0 0 0 / 35%);
-}
+  .portfolio-grid span {
+      position: relative;
+  }
+
+  .portfolio-grid button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      border-radius: 50px;
+      border: none;
+      box-shadow: 0 6px 9px rgb(0 0 0 / 35%);
+  }
 
   .upload-btn {
-    background-image: url(/src/img/add-photo.svg);
-    width: 100px;
-    height: 100px;
-    display: block;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
-    position: relative;
-    top: 11px;
-    cursor: pointer;
+      background-image: url(/src/img/add-photo.svg);
+      width: 100px;
+      height: 100px;
+      display: block;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: auto;
+      position: relative;
+      top: 11px;
+      cursor: pointer;
   }
 
   .btn-enviar-foto {

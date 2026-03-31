@@ -1,6 +1,8 @@
 const modalEdit = document.getElementById('editor');
 const visualizacaoEdit = modalEdit.querySelector('#visualizacao');
 if (window.location.search.indexOf('modo=editar') > -1) {
+    const btnSalvar = document.getElementById('salvar');
+    btnSalvar.style.display = 'block';
     const textEdit = modalEdit.querySelector('#textEdit');
     document.querySelectorAll('main h1, main h2, main p, main h3, main li').forEach(elem => {
         const button = document.createElement('button');
