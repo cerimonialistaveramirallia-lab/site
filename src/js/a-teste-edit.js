@@ -1,81 +1,84 @@
+function Cancelar() {
+    modalEdit.style.display = 'none';
+    document.querySelectorAll('main h1.edit, main h2.edit, main p.edit, main h3.edit, main li.edit').forEach(elem => {
+        elem.classList.remove('edit');
+    })
+}
+function ModoEditar() {
+    if (window.location.search.indexOf('modo=editar') > -1) {
+        const btnSalvar = document.getElementById('salvar');
+        btnSalvar.style.display = 'block';
+        const textEdit = modalEdit.querySelector('#textEdit');
+        document.querySelectorAll('main h1, main h2, main p, main h3, main li').forEach(elem => {
+            const button = document.createElement('button');
+            button.innerHTML = '<img src="/src/img/edit.svg"/>';
+            button.className = 'btn-edit';
+            button.onclick = (e) => {
+                elem.classList.add('edit');
+                modalEdit.style.display = 'block';
+                textEdit.value = e.target.parentNode.innerHTML.replace(/<button.*?<\/button>/g, "").replace(/\n/g, '').replace(/\r/g, '').replace(/   /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ');
+                visualizacaoEdit.innerHTML = e.target.parentNode.outerHTML.replace(/<button.*?<\/button>/g, "");
+            }
+            elem.appendChild(button);
+            if (elem.nodeName == 'LI') {
+                const buttonExcluir = document.createElement('button');
+                buttonExcluir.innerHTML = '<img src="/src/img/delete.svg"/>';
+                buttonExcluir.className = 'btn-edit';
+                buttonExcluir.onclick = (e) => {
+                    const result = confirm('Deseja excluir esse item?');
+                    if (result) {
+                        elem.classList.add('remover');
+                        document.getElementById('Atualizar').click();
+                    }
+                }
+                elem.appendChild(buttonExcluir);
+            }
+        });
+
+        textEdit.onkeyup = (e) => {
+            visualizacaoEdit.querySelector('h1, h2, p, h3, li').innerHTML = e.target.value;
+        };
+
+
+
+        document.querySelectorAll('main ul').forEach(ul => {
+            const li = document.createElement("li");
+            const button = document.createElement('button');
+            button.innerHTML = '<img src="/src/img/add.svg"/>';
+            button.className = 'btn-edit';
+            button.onclick = (e) => {
+                li.classList.add('edit');
+                modalEdit.style.display = 'block';
+                textEdit.value = "";
+                visualizacaoEdit.innerHTML = `<li></li>`;//e.target.parentNode.outerHTML.replace('<button class="btn-edit">Editar</button>', '');
+            }
+            li.appendChild(button);
+            ul.appendChild(li);
+        });
+
+        const portfolioFotos = document.querySelector('.portfolio-grid');
+        if (portfolioFotos) {
+
+            portfolioFotos.querySelectorAll('span').forEach(item => {
+                let path = item.querySelector('img').src.split('/').pop();
+                item.innerHTML += `<button onclick="btndelfoto('${path}', this)">x</button>`;
+            });
+            portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
+</label></div>` + portfolioFotos.innerHTML;
+            //<button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>
+            EventoFotos();
+            const inputFile = document.getElementById("fileInput");
+            //const previewFile = document.getElementById("preview");
+            inputFile.addEventListener("change", function () {
+                uploadImage();
+            });
+        }
+    }
+}
+
 const modalEdit = document.getElementById('editor');
 const visualizacaoEdit = modalEdit.querySelector('#visualizacao');
-if (window.location.search.indexOf('modo=editar') > -1) {
-    const btnSalvar = document.getElementById('salvar');
-    btnSalvar.style.display = 'block';
-    const textEdit = modalEdit.querySelector('#textEdit');
-    document.querySelectorAll('main h1, main h2, main p, main h3, main li').forEach(elem => {
-        const button = document.createElement('button');
-        button.innerHTML = '<img src="/src/img/edit.svg"/>';
-        button.className = 'btn-edit';
-        button.onclick = (e) => {
-            elem.classList.add('edit');
-            modalEdit.style.display = 'block';
-            textEdit.value = e.target.parentNode.innerHTML.replace(/<button.*?<\/button>/g, "").replace(/\n/g, '').replace(/\r/g, '').replace(/   /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ').replace(/  /g, ' ');
-            visualizacaoEdit.innerHTML = e.target.parentNode.outerHTML.replace(/<button.*?<\/button>/g, "");
-        }
-        elem.appendChild(button);
-        if (elem.nodeName == 'LI') {
-            const buttonExcluir = document.createElement('button');
-            buttonExcluir.innerHTML = '<img src="/src/img/delete.svg"/>';
-            buttonExcluir.className = 'btn-edit';
-            buttonExcluir.onclick = (e) => {
-                const result = confirm('Deseja excluir esse item?');
-                if (result) {
-                    elem.classList.add('remover');
-                    document.getElementById('Atualizar').click();
-                }
-            }
-            elem.appendChild(buttonExcluir);
-        }
-    });
-
-    textEdit.onkeyup = (e) => {
-        visualizacaoEdit.querySelector('h1, h2, p, h3, li').innerHTML = e.target.value;
-    };
-    function Cancelar() {
-        modalEdit.style.display = 'none';
-        document.querySelectorAll('main h1.edit, main h2.edit, main p.edit, main h3.edit, main li.edit').forEach(elem => {
-            elem.classList.remove('edit');
-        })
-    }
-
-
-    document.querySelectorAll('main ul').forEach(ul => {
-        const li = document.createElement("li");
-        const button = document.createElement('button');
-        button.innerHTML = '<img src="/src/img/add.svg"/>';
-        button.className = 'btn-edit';
-        button.onclick = (e) => {
-            li.classList.add('edit');
-            modalEdit.style.display = 'block';
-            textEdit.value = "";
-            visualizacaoEdit.innerHTML = `<li></li>`;//e.target.parentNode.outerHTML.replace('<button class="btn-edit">Editar</button>', '');
-        }
-        li.appendChild(button);
-        ul.appendChild(li);
-    });
-
-    const portfolioFotos = document.querySelector('.portfolio-grid');
-    if (portfolioFotos) {
-
-        portfolioFotos.querySelectorAll('span').forEach(item => {
-            let path = item.querySelector('img').src.split('/').pop();
-            item.innerHTML += `<button onclick="btndelfoto('${path}', this)">x</button>`;
-        });
-        portfolioFotos.innerHTML = `<div><input type="file" id="fileInput" hidden><label for="fileInput" class="upload-btn">
-</label></div>` + portfolioFotos.innerHTML;
-        //<button type="button" class="btn-enviar-foto" onclick="uploadImage()"></button>
-        EventoFotos();
-        const inputFile = document.getElementById("fileInput");
-        //const previewFile = document.getElementById("preview");
-        inputFile.addEventListener("change", function () {
-            uploadImage();
-        });
-    }
-
-
-}
+ModoEditar();
 
 async function btndelfoto(path, e) {
     let user = getCookie('session');
@@ -91,7 +94,7 @@ async function btndelfoto(path, e) {
         }).then(res => res.json()).catch(err => {
             alert("❌ Erro ao atualizar arquivo: " + err);
         });
-        if(res.data){
+        if (res.data) {
             document.getElementById('Atualizar').click();
         }
     }

@@ -6,7 +6,7 @@ export function AtualizarConteudo() {
         return btoa(unescape(encodeURIComponent(str)));
     }
 
-    document.getElementById('salvar').onclick = async () => {
+    document.getElementById('salvar').onclick = async (e) => {
         let podeSalvar = confirm('Confirme para Ok para salvar!');
         if (podeSalvar) {
             let user = getCookie('session');
@@ -50,19 +50,25 @@ export function AtualizarConteudo() {
                 const conteudo = document.documentElement.outerHTML;
                 const base64 = toBase64(conteudo);
 
-                const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
+                e.target.style.display = "";
+                /* const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ path, content: base64, tipo: 'html', id: user.id })
                 }).then(res => res.json()).catch(er => {
                     alert("❌ Erro ao atualizar arquivo: " + err);
                 });
-
+ */
+                let res = {
+                    content: null
+                };
                 if (res.content) {
                     let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer!');
-                    if (value) {
-                        window.location.reload();
-                    }
+                    window.location.reload();
+                } else {
+                    e.target.style.display = "block";
+                    CarregaLogin()
+                    ModoEditar();
                 }
             }
         }
