@@ -60,11 +60,11 @@ export function AtualizarConteudo() {
                 });
 
                 if (res.content) {
-                    let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer!');
+                    let value = confirm('Atualizado com sucesso!, as alterações podem demorar para aparecer! aguarde para fazer nova alteração');
                     window.location.reload();
                 } else {
                     e.target.style.display = "block";
-                    CarregaLogin()
+                    CarregaLogin();
                     ModoEditar();
                 }
             }
