@@ -46,11 +46,13 @@ export function AtualizarConteudo() {
                 if (modalEdit)
                     modalEdit.style.display = 'none';
 
+                e.target.style.display = "";
+
                 // Pega HTML da página
                 const conteudo = document.documentElement.outerHTML;
                 const base64 = toBase64(conteudo);
 
-                e.target.style.display = "";
+                
                 const res = await fetch("https://www.veramiralliacerimonialista.com.br/api/upload", {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
