@@ -27,8 +27,9 @@ function ModoEditar() {
                 buttonExcluir.onclick = (e) => {
                     const result = confirm('Deseja excluir esse item?');
                     if (result) {
-                        elem.classList.add('remover');
-                        document.getElementById('Atualizar').click();
+                        //elem.classList.add('remover');
+                        elem.remove();
+                        //document.getElementById('Atualizar').click();
                     }
                 }
                 elem.appendChild(buttonExcluir);
