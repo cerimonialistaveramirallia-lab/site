@@ -82,8 +82,12 @@ export function AtualizarConteudo() {
 
             //ver se alteração foi link
             const link = edit.querySelector('a')
-            if(link && link.href.indexOf('tel:') > -1){
-                link.href = `tel:0${link.textContent.replace('(', '').replace(')', '').replace('-', '').replace(/ /g, '')}`;
+            if(link) {
+                const tel = link.textContent.replace('(', '').replace(')', '').replace('-', '').replace(/ /g, '');
+                if(link.href.indexOf('tel:') > -1)
+                    link.href = `tel:0${tel}`;
+                else if(link.href.indexOf('https://api.whatsapp.com/send') > -1)
+                    link.href = `https://api.whatsapp.com/send/?phone=${tel}&text=Olá Vera Lucia Mirallia! Visitei seu site e queria mais informações sobre assessoria`;
             }
 
             edit.classList.remove('edit');
