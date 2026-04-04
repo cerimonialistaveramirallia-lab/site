@@ -28,6 +28,10 @@ export function AtualizarConteudo() {
                 if(stylegoogle)
                     stylegoogle.remove();
 
+                const iubenda = document.getElementById('iubenda-cs-banner');
+                if(iubenda)
+                    iubenda.remove();
+
                 const elemAdicionarFoto = document.querySelector('.portfolio-grid div');
                 if (elemAdicionarFoto)
                     elemAdicionarFoto.remove();
