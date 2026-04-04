@@ -79,6 +79,13 @@ export function AtualizarConteudo() {
         const edit = document.querySelector('.edit');
         if (edit) {
             edit.innerHTML = textEdit.value;
+
+            //ver se alteração foi link
+            const link = edit.querySelector('a')
+            if(link && link.href.indexOf('tel:') > -1){
+                link.href = `tel:0${link.textContent.replace('(', '').replace(')', '').replace('-', '').replace(/ /g, '')}`;
+            }
+
             edit.classList.remove('edit');
             textEdit.value = "";
             visualizacaoEdit.innerHTML = "";
