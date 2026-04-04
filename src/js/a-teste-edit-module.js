@@ -24,6 +24,10 @@ export function AtualizarConteudo() {
                     login.innerHTML = `<a href="/entrar?ref=${window.location.pathname}">Entrar</a>`;
                 }
 
+                const stylegoogle = document.getElementById('googleidentityservice_button_styles');
+                if(stylegoogle)
+                    stylegoogle.remove();
+
                 const elemAdicionarFoto = document.querySelector('.portfolio-grid div');
                 if (elemAdicionarFoto)
                     elemAdicionarFoto.remove();
