@@ -24,6 +24,10 @@ export function AtualizarConteudo() {
                     login.innerHTML = `<a href="/entrar?ref=${window.location.pathname}">Entrar</a>`;
                 }
 
+                const cookieModal = document.getElementById('cookieModal');
+                if(cookieModal)
+                    cookieModal.style.display = 'none';
+
                 const stylegoogle = document.getElementById('googleidentityservice_button_styles');
                 if(stylegoogle)
                     stylegoogle.remove();
